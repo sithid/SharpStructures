@@ -11,14 +11,14 @@ namespace SharpStructures
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
 
-            Structures.LinkedList list = new Structures.LinkedList();
+            LinkedList list = new LinkedList();
             
             Console.WriteLine();
             Console.WriteLine($"Linked List Count: {list.Count}");
             Console.WriteLine($"Linked List ToString: {list.ToString()}");
             Console.WriteLine();
 
-            Structures.Node head = list.InsertAtHead(1);
+            Node head = list.InsertAtHead(1);
 
             Console.WriteLine($"\tInserting Node At Head:{head.Data}");
             Console.WriteLine($"\t\tHead:{list.Head.Data}");
@@ -26,7 +26,7 @@ namespace SharpStructures
 
             for (int i = 2; i <= 10; i++)
             {
-                Structures.Node n = list.InsertAtTail(i);
+                Node n = list.InsertAtTail(i);
 
                 Console.WriteLine($"\tInserting Node At Tail:{n.Data}");
                 Console.WriteLine($"\t\tHead:{list.Head.Data}");
@@ -41,20 +41,26 @@ namespace SharpStructures
             Console.WriteLine($"\tList {{ {list.ToString()} }}");
             Console.WriteLine();
 
-            int x = list.RemoveHead();
-            int y = list.RemoveTail();
-            int z = list.RemoveAt(5);
-
-            Node temp = new Node(5);
-            int w = list.RemoveAfter(temp);
+            int x = list.RemoveAfter(5);
 
             Console.WriteLine();
-            Console.WriteLine("Linked List: Remove Head, Remove Tail, Remove After (5), Remove At (5)");
+            Console.WriteLine("Linked List: Remove At (index 0)");
             Console.WriteLine($"\tCount: {list.Count}");
             Console.WriteLine($"\tHead: {list.Head.Data}");
             Console.WriteLine($"\tTail: {list.Tail.Data}");
             Console.WriteLine($"\tList {{ {list.ToString()} }}");
-            Console.WriteLine($"\tRemoved Node Data: Head: {x}, Tail: {y}, After: {z}, At: {w}");
+            Console.WriteLine($"\tRemoved Node Data: At: {x}");
+            Console.WriteLine();
+
+            int y = list.RemoveAt(5);
+
+            Console.WriteLine();
+            Console.WriteLine("Linked List: Remove After (index 0)");
+            Console.WriteLine($"\tCount: {list.Count}");
+            Console.WriteLine($"\tHead: {list.Head.Data}");
+            Console.WriteLine($"\tTail: {list.Tail.Data}");
+            Console.WriteLine($"\tList {{ {list.ToString()} }}");
+            Console.WriteLine($"\tRemoved Node Data: After: {y}");
             Console.WriteLine();
 
             Console.WriteLine();

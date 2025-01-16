@@ -1,13 +1,28 @@
-﻿using System.Text;
+﻿using System.Security.Principal;
+using System.Text;
 
 namespace SharpStructures.Structures
 {
     public class LinkedList
     {
+        /// <summary>
+        /// The first node in the linked list.
+        /// </summary>
         public Node Head { get; set; } = null;
+
+        /// <summary>
+        /// The last node in the linked list.
+        /// </summary>
         public Node Tail { get; set; } = null;
+
+        /// <summary>
+        /// The total number of nodes in the linked list.
+        /// </summary>
         public int Count { get; set; } = 0;
 
+        /// <summary>
+        /// Default constructor for LinkedList.
+        /// </summary>
         public LinkedList() {
         }
 
@@ -105,37 +120,61 @@ namespace SharpStructures.Structures
         }
 
         /// <summary>
+        /// Find a node at the specified index ( 0-based indexing ).
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns>Returns the node at the specified index.</returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public Node FindNodeAt( int index ) {
+            if( index < 0 || index > this.Count - 1 ) {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            if (index == 0) {
+                return this.Head;
+            }
+
+            if (index == this.Count - 1) {
+                return this.Tail;
+            }
+
+            Node temp = this.Head;
+
+            int count = 1;
+
+            while( count <= index && temp != null ) {
+            
+                temp = temp.Next;
+                count++;
+            }
+
+            return temp;
+        }
+
+        /// <summary>
         /// Removes a node AFTER the given node.
         /// </summary>
         /// <param name="toRemove"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public int RemoveAfter(Node previousNode ) {
-
-            if (previousNode == null) {
-                throw new InvalidOperationException();
+        public int RemoveAfter(int index ) {
+            if( index < 0 ) {
+                throw new ArgumentOutOfRangeException("index");
             }
 
-            Node nodeToRemove = this.Head;
+            Node previousNode = FindNodeAt(index);
+            Node nodeToRemove = previousNode.Next;
 
-            while( nodeToRemove != null) {
-                if (nodeToRemove.Data == previousNode.Data)
-                    break;
-                else
-                    nodeToRemove = nodeToRemove.Next;
-            }
             if (nodeToRemove == null) {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("Node does not exist.");
             }
 
             int data = nodeToRemove.Data;
-            Node nextNode = nodeToRemove.Next;
 
-            if (nextNode == null) {
-                this.Tail = previousNode;
-            }
-            else {
-                previousNode.Next = nextNode;
+            previousNode.Next = nodeToRemove.Next; // Bypass the node to remove
+
+            if (nodeToRemove == Tail) {
+                Tail = previousNode; // Update Tail if necessary
             }
 
             Count--;
@@ -148,34 +187,26 @@ namespace SharpStructures.Structures
         /// <param name="index"></param>
         /// <returns>Returns the data of the removed node.</returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public int RemoveAt( int index ) {
-            // Our linked list does not have an index 0, or atleast, we don't look at it as index 0.
-            // There is no actual indexing here, no arrays or Generic Lists involved, we do not have
-            // to call the head index 0.
-            if( index < 0 || index > Count - 1 ) { // If we make this index >= count, it will be out of bounds.
+        public int RemoveAt(int index) {
+            if (index < 0 || index > Count - 1) { 
                 throw new ArgumentOutOfRangeException();
             }
 
             if (index == 0) {
-                return RemoveHead();
+                return this.RemoveHead();
             }
             if (index == Count - 1) {
-                return RemoveTail();
+                return this.RemoveTail();
             }
-             
-            Node nodeToRemove = this.Head;
-            Node previousNode = null;
 
-            for (int i = 0; i < index; i++) { // nodeToRemove = index, nodeToRemove.Next = index + 1
-                previousNode = nodeToRemove;
-                nodeToRemove = nodeToRemove.Next;
-            }
+            Node previousNode = this.FindNodeAt(index - 1);
+            Node nodeToRemove = previousNode.Next;
 
             int data = nodeToRemove.Data;
 
             Node temp = nodeToRemove.Next;
 
-            if( temp != null ) {
+            if (temp != null) {
                 previousNode.Next = temp;
             }
 
@@ -183,6 +214,10 @@ namespace SharpStructures.Structures
             return data;
         }
 
+        /// <summary>
+        /// Formats and returns a string representing the linked list.
+        /// </summary>
+        /// <returns>A string representing the linked list ([ Count, Node Data: ...])</returns>
         public override string ToString() {
             if (Head == null) {
                 return "[Count: 0, Empty List]";
