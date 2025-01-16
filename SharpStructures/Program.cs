@@ -1,4 +1,6 @@
-﻿namespace SharpStructures
+﻿using SharpStructures.Structures;
+
+namespace SharpStructures
 {
     public class Program
     {
@@ -20,7 +22,7 @@
 
             Console.WriteLine($"\tInserting Node At Head:{head.Data}");
             Console.WriteLine($"\t\tHead:{list.Head.Data}");
-            Console.WriteLine($"\t\tTail:{list.GetTail().Data}");
+            Console.WriteLine($"\t\tTail:{list.Tail.Data}");
 
             for (int i = 2; i <= 10; i++)
             {
@@ -28,16 +30,41 @@
 
                 Console.WriteLine($"\tInserting Node At Tail:{n.Data}");
                 Console.WriteLine($"\t\tHead:{list.Head.Data}");
-                Console.WriteLine($"\t\tTail:{list.GetTail().Data}");
+                Console.WriteLine($"\t\tTail:{list.Tail.Data}");
             }
 
             Console.WriteLine();
             Console.WriteLine("Linked List:");
             Console.WriteLine($"\tCount: {list.Count}");
             Console.WriteLine($"\tHead: {list.Head.Data}");
-            Console.WriteLine($"\tTail: {list.GetTail().Data}");
+            Console.WriteLine($"\tTail: {list.Tail.Data}");
             Console.WriteLine($"\tList {{ {list.ToString()} }}");
             Console.WriteLine();
+
+            int x = list.RemoveHead();
+            int y = list.RemoveTail();
+            int z = list.RemoveAt(5);
+
+            Node temp = new Node(5);
+            int w = list.RemoveAfter(temp);
+
+            Console.WriteLine();
+            Console.WriteLine("Linked List: Remove Head, Remove Tail, Remove After (5), Remove At (5)");
+            Console.WriteLine($"\tCount: {list.Count}");
+            Console.WriteLine($"\tHead: {list.Head.Data}");
+            Console.WriteLine($"\tTail: {list.Tail.Data}");
+            Console.WriteLine($"\tList {{ {list.ToString()} }}");
+            Console.WriteLine($"\tRemoved Node Data: Head: {x}, Tail: {y}, After: {z}, At: {w}");
+            Console.WriteLine();
+
+            Console.WriteLine();
+            Console.WriteLine("Linked List: ");
+            Console.WriteLine($"\tCount: {list.Count}");
+            Console.WriteLine($"\tHead: {list.Head.Data}");
+            Console.WriteLine($"\tTail: {list.Tail.Data}");
+            Console.WriteLine($"\tList {{ {list.ToString()} }}");
+            Console.WriteLine();
+
             Console.ReadKey();
         }
     }
