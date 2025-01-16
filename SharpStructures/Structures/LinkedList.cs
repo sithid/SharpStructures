@@ -1,4 +1,5 @@
-﻿using System.Security.Principal;
+﻿using System.ComponentModel;
+using System.Security.Principal;
 using System.Text;
 
 namespace SharpStructures.Structures
@@ -214,6 +215,33 @@ namespace SharpStructures.Structures
             return data;
         }
 
+        public List<int> ToList() {
+            List<int> gList = new List<int>();
+
+            for( int i = 0; i < this.Count; i++) {
+                Node n = this.FindNodeAt(i);
+
+                if (n != null) {
+                    gList.Add(n.Data);
+                }
+            }
+
+            return gList;
+        }
+
+        public int[] ToArray() {
+            int[] array = new int[Count];
+
+            for( int i = 0; i < Count; i++) {
+                Node n = this.FindNodeAt(i);
+                
+                if( n != null ) {
+                    array[i] = n.Data;
+                }
+            }
+
+            return array;
+        }
         /// <summary>
         /// Formats and returns a string representing the linked list.
         /// </summary>

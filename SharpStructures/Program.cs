@@ -1,4 +1,5 @@
 ﻿using SharpStructures.Structures;
+using System.Runtime.InteropServices.Marshalling;
 
 namespace SharpStructures
 {
@@ -24,7 +25,7 @@ namespace SharpStructures
             Console.WriteLine($"\t\tHead:{list.Head.Data}");
             Console.WriteLine($"\t\tTail:{list.Tail.Data}");
 
-            for (int i = 2; i <= 10; i++)
+            for (int i = 2; i <= 10000; i++)
             {
                 Node n = list.InsertAtTail(i);
 
@@ -71,6 +72,29 @@ namespace SharpStructures
             Console.WriteLine($"\tList {{ {list.ToString()} }}");
             Console.WriteLine();
 
+            List<int> gList = list.ToList();
+            int[] arr = list.ToArray();
+
+            Console.WriteLine("Linked List: Converting to List<int>");
+            Console.WriteLine($"List<int> :: {gList}");
+            Console.Write($"\tValues :: ");
+
+            foreach (int nodeData in gList) {
+                Console.Write($"{nodeData} "); 
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("Linked List: Converting to array.");
+            Console.WriteLine($"int[] :: {arr}");
+            Console.Write($"\tValues :: ");
+
+            foreach (int nodeData in arr) {
+                Console.Write($"{nodeData} ");
+            }
+
+            Console.WriteLine();
             Console.ReadKey();
         }
     }
