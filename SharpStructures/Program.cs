@@ -16,21 +16,27 @@
             Console.WriteLine($"Linked List ToString: {list.ToString()}");
             Console.WriteLine();
 
-            for (int i = 1; i <= 10; i++)
+            Structures.Node head = list.InsertAtHead(1);
+
+            Console.WriteLine($"\tInserting Node At Head:{head.Data}");
+            Console.WriteLine($"\t\tHead:{list.Head.Data}");
+            Console.WriteLine($"\t\tTail:{list.GetTail().Data}");
+
+            for (int i = 2; i <= 10; i++)
             {
-                Structures.Node n = list.InsertAtHead(i);
+                Structures.Node n = list.InsertAtTail(i);
 
-                Console.Write($"\tInserting Node:{n.Data} => ");
-
-                if (n.Next != null)
-                    Console.WriteLine($"{n.Next.ToString()}");
-                else
-                    Console.WriteLine("NULL");
+                Console.WriteLine($"\tInserting Node At Tail:{n.Data}");
+                Console.WriteLine($"\t\tHead:{list.Head.Data}");
+                Console.WriteLine($"\t\tTail:{list.GetTail().Data}");
             }
 
             Console.WriteLine();
-            Console.WriteLine($"Linked List Count: {list.Count}");
-            Console.WriteLine($"Linked List ToString: {list.ToString()}");
+            Console.WriteLine("Linked List:");
+            Console.WriteLine($"\tCount: {list.Count}");
+            Console.WriteLine($"\tHead: {list.Head.Data}");
+            Console.WriteLine($"\tTail: {list.GetTail().Data}");
+            Console.WriteLine($"\tList {{ {list.ToString()} }}");
             Console.WriteLine();
             Console.ReadKey();
         }

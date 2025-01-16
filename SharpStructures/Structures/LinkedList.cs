@@ -21,6 +21,29 @@ namespace SharpStructures.Structures
             return this.Head;
         }
 
+        public Node InsertAtTail(int data)
+        {
+            Node tail = this.Head;
+
+            while( tail.Next != null )
+                tail = tail.Next;
+
+            tail.Next = new Node(data, null);
+
+            Count++;
+            return GetTail();
+        }
+
+        public Node GetTail()
+        {
+            Node tail = this.Head;
+
+            while (tail.Next != null)
+                tail = tail.Next;
+
+            return tail;
+        }
+
         public override string ToString()
         {
             if (Head == null)
@@ -29,20 +52,21 @@ namespace SharpStructures.Structures
             }
 
             StringBuilder sb = new StringBuilder();
-            sb.Append($"[\n\r   Count: {Count}, Node List [");
+            sb.Append($"[ Count: {Count}, Node Data: ");
 
             Node current = Head;
+
             while (current != null)
             {
                 sb.Append($"{current.Data}");
                 if (current.Next != null)
                 {
-                    sb.Append(" => ");
+                    sb.Append(" , ");
                 }
                 current = current.Next;
             }
 
-            sb.Append("]");
+            sb.Append(" ]");
             return sb.ToString();
         }
     }

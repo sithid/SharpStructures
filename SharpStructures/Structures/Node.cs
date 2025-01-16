@@ -1,4 +1,6 @@
-﻿namespace SharpStructures.Structures
+﻿using System.Runtime.CompilerServices;
+
+namespace SharpStructures.Structures
 {
     public class Node
     {
@@ -17,6 +19,14 @@
 
         public Node() : this(0, null)
         {
+        }
+
+        public override string ToString()
+        {
+            if( Next != null )
+                return $"{this.Data}, {this.Next.ToString()}";
+            else
+                return $"{this.Data}, NULL ";
         }
     }
 }
