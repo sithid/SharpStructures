@@ -25,13 +25,10 @@ namespace SharpStructures
             Console.WriteLine($"\t\tHead:{list.Head.Data}");
             Console.WriteLine($"\t\tTail:{list.Tail.Data}");
 
-            for (int i = 2; i <= 10000; i++)
+            for (int i = 2; i <= 100; i++)
             {
-                Node n = list.InsertAtTail(i);
-
+                Node n = list.InsertAtTail(i*i-1);
                 Console.WriteLine($"\tInserting Node At Tail:{n.Data}");
-                Console.WriteLine($"\t\tHead:{list.Head.Data}");
-                Console.WriteLine($"\t\tTail:{list.Tail.Data}");
             }
 
             Console.WriteLine();
@@ -39,29 +36,30 @@ namespace SharpStructures
             Console.WriteLine($"\tCount: {list.Count}");
             Console.WriteLine($"\tHead: {list.Head.Data}");
             Console.WriteLine($"\tTail: {list.Tail.Data}");
-            Console.WriteLine($"\tList {{ {list.ToString()} }}");
+            Console.WriteLine($"\tValues :: {list.ToString()}");
             Console.WriteLine();
 
             int x = list.RemoveAfter(5);
+            Console.WriteLine($"\tRemoved Node Data: After: {x}");
 
             Console.WriteLine();
             Console.WriteLine("Linked List: Remove At (index 0)");
             Console.WriteLine($"\tCount: {list.Count}");
             Console.WriteLine($"\tHead: {list.Head.Data}");
             Console.WriteLine($"\tTail: {list.Tail.Data}");
-            Console.WriteLine($"\tList {{ {list.ToString()} }}");
-            Console.WriteLine($"\tRemoved Node Data: At: {x}");
-            Console.WriteLine();
+            Console.WriteLine($"\tValues :: {list.ToString()}");
 
-            int y = list.RemoveAt(5);
+            for (int i = 0; i < list.Count; i += 5) {
+                int y = list.RemoveAt(i);
+
+                Console.WriteLine($"\tRemoved Node Data: At: {y}");
+            }
 
             Console.WriteLine();
-            Console.WriteLine("Linked List: Remove After (index 0)");
             Console.WriteLine($"\tCount: {list.Count}");
             Console.WriteLine($"\tHead: {list.Head.Data}");
             Console.WriteLine($"\tTail: {list.Tail.Data}");
-            Console.WriteLine($"\tList {{ {list.ToString()} }}");
-            Console.WriteLine($"\tRemoved Node Data: After: {y}");
+            Console.WriteLine($"\tValues :: {list.ToString()}");
             Console.WriteLine();
 
             Console.WriteLine();
@@ -69,7 +67,7 @@ namespace SharpStructures
             Console.WriteLine($"\tCount: {list.Count}");
             Console.WriteLine($"\tHead: {list.Head.Data}");
             Console.WriteLine($"\tTail: {list.Tail.Data}");
-            Console.WriteLine($"\tList {{ {list.ToString()} }}");
+            Console.WriteLine($"\tValues :: {list.ToString()}");
             Console.WriteLine();
 
             List<int> gList = list.ToList();

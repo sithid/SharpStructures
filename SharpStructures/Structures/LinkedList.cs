@@ -248,23 +248,21 @@ namespace SharpStructures.Structures
         /// <returns>A string representing the linked list ([ Count, Node Data: ...])</returns>
         public override string ToString() {
             if (Head == null) {
-                return "[Count: 0, Empty List]";
+                return "0, null";
             }
 
             StringBuilder sb = new StringBuilder();
-            sb.Append($"[ Count: {Count}, Node Data: ");
 
             Node current = Head;
 
             while (current != null) {
                 sb.Append($"{current.Data}");
                 if (current.Next != null) {
-                    sb.Append(" , ");
+                    sb.Append(" ");
                 }
                 current = current.Next;
             }
 
-            sb.Append(" ]");
             return sb.ToString();
         }
     }
