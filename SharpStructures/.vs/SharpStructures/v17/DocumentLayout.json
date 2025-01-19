@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\demon\\OneDrive\\Documents\\GitHub\\SharpStructures\\SharpStructures\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{73E13022-2265-4141-9A6A-D7FCE2713EF7}|SharpStructures.csproj|c:\\users\\demon\\onedrive\\documents\\github\\sharpstructures\\sharpstructures\\structures\\linkedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73E13022-2265-4141-9A6A-D7FCE2713EF7}|SharpStructures.csproj|solutionrelative:structures\\linkedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{73E13022-2265-4141-9A6A-D7FCE2713EF7}|SharpStructures.csproj|c:\\users\\demon\\onedrive\\documents\\github\\sharpstructures\\sharpstructures\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73E13022-2265-4141-9A6A-D7FCE2713EF7}|SharpStructures.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73E13022-2265-4141-9A6A-D7FCE2713EF7}|SharpStructures.csproj|c:\\users\\demon\\onedrive\\documents\\github\\sharpstructures\\sharpstructures\\structures\\generic\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73E13022-2265-4141-9A6A-D7FCE2713EF7}|SharpStructures.csproj|solutionrelative:structures\\generic\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73E13022-2265-4141-9A6A-D7FCE2713EF7}|SharpStructures.csproj|c:\\users\\demon\\onedrive\\documents\\github\\sharpstructures\\sharpstructures\\structures\\linkedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73E13022-2265-4141-9A6A-D7FCE2713EF7}|SharpStructures.csproj|solutionrelative:structures\\linkedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "LinkedList.cs",
               "DocumentMoniker": "C:\\Users\\demon\\OneDrive\\Documents\\GitHub\\SharpStructures\\SharpStructures\\Structures\\LinkedList.cs",
               "RelativeDocumentMoniker": "Structures\\LinkedList.cs",
               "ToolTip": "C:\\Users\\demon\\OneDrive\\Documents\\GitHub\\SharpStructures\\SharpStructures\\Structures\\LinkedList.cs",
               "RelativeToolTip": "Structures\\LinkedList.cs",
-              "ViewState": "AgIAAOoAAAAAAAAAAAAmwAkBAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAOwAAAAAAAAAAAAAAAwBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T08:39:02.479Z",
+              "WhenOpened": "2025-01-19T06:48:13.919Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Node.cs",
+              "DocumentMoniker": "C:\\Users\\demon\\OneDrive\\Documents\\GitHub\\SharpStructures\\SharpStructures\\Structures\\Generic\\Node.cs",
+              "RelativeDocumentMoniker": "Structures\\Generic\\Node.cs",
+              "ToolTip": "C:\\Users\\demon\\OneDrive\\Documents\\GitHub\\SharpStructures\\SharpStructures\\Structures\\Generic\\Node.cs",
+              "RelativeToolTip": "Structures\\Generic\\Node.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADMAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-19T07:35:29.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\demon\\OneDrive\\Documents\\GitHub\\SharpStructures\\SharpStructures\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\demon\\OneDrive\\Documents\\GitHub\\SharpStructures\\SharpStructures\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAmwD0AAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-16T08:52:47.187Z",
+              "WhenOpened": "2025-01-19T06:41:50.521Z",
               "EditorCaption": ""
             }
           ]
