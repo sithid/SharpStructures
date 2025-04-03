@@ -11,8 +11,8 @@
       "RelativeMoniker": "D:0:0:{73E13022-2265-4141-9A6A-D7FCE2713EF7}|SharpStructures.csproj|solutionrelative:structures\\generic\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73E13022-2265-4141-9A6A-D7FCE2713EF7}|SharpStructures.csproj|c:\\users\\demon\\onedrive\\documents\\github\\sharpstructures\\sharpstructures\\structures\\linkedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73E13022-2265-4141-9A6A-D7FCE2713EF7}|SharpStructures.csproj|solutionrelative:structures\\linkedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\demon\\OneDrive\\Documents\\GitHub\\SharpStructures\\SharpStructures\\Structures\\LinkedList.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Structures\\LinkedList.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +34,7 @@
               "RelativeToolTip": "Structures\\LinkedList.cs",
               "ViewState": "AgIAAOwAAAAAAAAAAAAAAAwBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T06:48:13.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-19T06:48:13.919Z"
             },
             {
               "$type": "Document",
@@ -47,8 +46,7 @@
               "RelativeToolTip": "Structures\\Generic\\Node.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAAADMAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T07:35:29.359Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-19T07:35:29.359Z"
             },
             {
               "$type": "Document",
@@ -58,7 +56,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\demon\\OneDrive\\Documents\\GitHub\\SharpStructures\\SharpStructures\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGwAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T06:41:50.521Z",
               "EditorCaption": ""

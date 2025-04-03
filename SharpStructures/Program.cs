@@ -7,7 +7,7 @@ namespace SharpStructures
 {
     public class Program
     {
-        public static void Main(string[] args) {
+        public static void Main() {
             Console.WriteLine("Welcome to SharpStructures, a collection of data structures written in C#.");
             Console.WriteLine("This program was created to help me learn more about various data stuctures.");
             Console.WriteLine("Press any key to countinue.\n\r");
@@ -19,7 +19,7 @@ namespace SharpStructures
         private static void RunTestMenu() {
             Console.Clear();
             Console.WriteLine("Run tests for which structure? ");
-            Console.WriteLine("1: LinkedList");
+            Console.WriteLine("1: Deque");
             Console.WriteLine("q: Exit");
 
             string input = Console.ReadLine();
@@ -36,12 +36,12 @@ namespace SharpStructures
             }
         }
 
-        #region LinkedList Test Methods
+        #region Deque Test Methods
         private static void TestLLRun() {
             Console.Clear();
-            Structures.Generic.LinkedList<int> list = new Structures.Generic.LinkedList<int>();
+            var list = new Structures.Generic.Deque<int>();
 
-            Console.WriteLine($"Testing LinkedList<int>");
+            Console.WriteLine($"Testing Deque<int>");
             Console.WriteLine("Empty Linked List: ");
             Console.WriteLine($"Linked List Count: {list.Count}");
             Console.WriteLine($"Linked List ToString: {list.ToString()}");
@@ -67,7 +67,7 @@ namespace SharpStructures
             RunTestMenu();
         }
 
-        private static void TestLLAdd( Structures.Generic.LinkedList<int> list ) {
+        private static void TestLLAdd( Structures.Generic.Deque<int> list ) {
             Console.WriteLine("Testing InsertAtHead: ");
             
             Node<int> head = list.InsertAtHead(1);
@@ -76,7 +76,7 @@ namespace SharpStructures
             Console.WriteLine("Testing InsertAtTail:");
 
             for (int i = 2; i <= 100; i++) {
-                Node<int> n = list.InsertAtTail(i * i - 1);
+                Node<int> n = list.InsertAtTail((i * i) - 1);
                 Console.WriteLine($"Inserting Node At Tail:{n.Data}");
             }
 
@@ -88,7 +88,7 @@ namespace SharpStructures
             Console.WriteLine();
         }
 
-        private static void TestLLRemove(Structures.Generic.LinkedList<int> list) {
+        private static void TestLLRemove(Structures.Generic.Deque<int> list) {
             Console.WriteLine("Testing RemoveAfter: ");
 
             int x = list.RemoveAfter(5);
@@ -102,15 +102,15 @@ namespace SharpStructures
             }
 
             Console.WriteLine();
-            Console.WriteLine($"LinkedList Information: ");
+            Console.WriteLine($"Deque Information: ");
             Console.Write($"Count: {list.Count}\n\r" +
                           $"Head: {list.Head.Data.ToString()}\n\r" +
                           $"Tail: {list.Tail.Data.ToString()}\n\r");
             Console.WriteLine($"Data: {list.ToString()}");
         }
 
-        private static void TestLLConverted(Structures.Generic.LinkedList<int> list) {
-            List<int> gList = list.ToList();
+        private static void TestLLConverted(Structures.Generic.Deque<int> list) {
+            var gList = list.ToList();
             int[] arr = list.ToArray();
 
             Console.WriteLine("Linked List: Converting to List<int>");

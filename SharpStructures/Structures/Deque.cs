@@ -2,19 +2,19 @@
 using System.Security.Principal;
 using System.Text;
 
-namespace SharpStructures.Structures.Generic
+namespace SharpStructures.Structures
 {
-    public class LinkedList<T>
+    public class Deque
     {
         /// <summary>
         /// The first node in the linked list.
         /// </summary>
-        public Node<T> Head { get; set; }
+        public Node Head { get; set; } = null;
 
         /// <summary>
         /// The last node in the linked list.
         /// </summary>
-        public Node<T> Tail { get; set; }
+        public Node Tail { get; set; } = null;
 
         /// <summary>
         /// The total number of nodes in the linked list.
@@ -22,9 +22,9 @@ namespace SharpStructures.Structures.Generic
         public int Count { get; set; } = 0;
 
         /// <summary>
-        /// Default constructor for LinkedList.
+        /// Default constructor for Deque.
         /// </summary>
-        public LinkedList() {
+        public Deque() {
         }
 
         /// <summary>
@@ -32,8 +32,8 @@ namespace SharpStructures.Structures.Generic
         /// </summary>
         /// <param name="data"></param>
         /// <returns>The inserted node.</returns>
-        public Node<T> InsertAtHead(T data) {
-            Node<T> head = new Node<T>(data, Head);
+        public Node InsertAtHead(int data) {
+            Node head = new Node(data, Head);
 
             this.Head = head;
 
@@ -51,13 +51,13 @@ namespace SharpStructures.Structures.Generic
         /// </summary>
         /// <param name="data"></param>
         /// <returns>The inserted node.</returns>
-        public Node<T> InsertAtTail(T data) {
+        public Node InsertAtTail(int data) {
             
             if( Head == null ) {
                 return InsertAtHead(data);
             }
 
-            this.Tail.Next = new Node<T>(data);
+            this.Tail.Next = new Node(data);
 
             this.Tail = this.Tail.Next;
 
@@ -71,13 +71,13 @@ namespace SharpStructures.Structures.Generic
         /// </summary>
         /// <returns> The data stored in the removed Head node.</returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public T RemoveHead() {
+        public int RemoveHead() {
 
             if (Head == null) {
                 throw new InvalidOperationException();
             }
 
-            T data = this.Head.Data;
+            int data = this.Head.Data;
 
             this.Head = this.Head.Next;
             this.Count--;
@@ -94,15 +94,15 @@ namespace SharpStructures.Structures.Generic
         /// </summary>
         /// <returns>The data stored in the removed Tail node.</returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public T RemoveTail() {
+        public int RemoveTail() {
 
             if( this.Tail == null ) {
                 throw new InvalidOperationException();
             }
 
-            T data = this.Tail.Data;
+            int data = this.Tail.Data;
 
-            Node<T> tail = this.Head;
+            Node tail = this.Head;
 
             while( tail.Next.Next != null) {
                 tail = tail.Next;
@@ -126,7 +126,7 @@ namespace SharpStructures.Structures.Generic
         /// <param name="index"></param>
         /// <returns>Returns the node at the specified index.</returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public Node<T> FindNodeAt( int index ) {
+        public Node FindNodeAt( int index ) {
             if( index < 0 || index > this.Count - 1 ) {
                 throw new ArgumentOutOfRangeException();
             }
@@ -139,7 +139,7 @@ namespace SharpStructures.Structures.Generic
                 return this.Tail;
             }
 
-            Node<T> temp = this.Head;
+            Node temp = this.Head;
 
             int count = 1;
 
@@ -158,19 +158,19 @@ namespace SharpStructures.Structures.Generic
         /// <param name="toRemove"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public T RemoveAfter(int index ) {
+        public int RemoveAfter(int index ) {
             if( index < 0 ) {
                 throw new ArgumentOutOfRangeException("index");
             }
 
-            Node<T> previousNode = FindNodeAt(index);
-            Node<T> nodeToRemove = previousNode.Next;
+            Node previousNode = FindNodeAt(index);
+            Node nodeToRemove = previousNode.Next;
 
             if (nodeToRemove == null) {
                 throw new InvalidOperationException("Node does not exist.");
             }
 
-            T data = nodeToRemove.Data;
+            int data = nodeToRemove.Data;
 
             previousNode.Next = nodeToRemove.Next; // Bypass the node to remove
 
@@ -188,7 +188,7 @@ namespace SharpStructures.Structures.Generic
         /// <param name="index"></param>
         /// <returns>Returns the data of the removed node.</returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public T RemoveAt(int index) {
+        public int RemoveAt(int index) {
             if (index < 0 || index > Count - 1) { 
                 throw new ArgumentOutOfRangeException();
             }
@@ -200,12 +200,12 @@ namespace SharpStructures.Structures.Generic
                 return this.RemoveTail();
             }
 
-            Node<T> previousNode = this.FindNodeAt(index - 1);
-            Node<T> nodeToRemove = previousNode.Next;
+            Node previousNode = this.FindNodeAt(index - 1);
+            Node nodeToRemove = previousNode.Next;
 
-            T data = nodeToRemove.Data;
+            int data = nodeToRemove.Data;
 
-            Node<T> temp = nodeToRemove.Next;
+            Node temp = nodeToRemove.Next;
 
             if (temp != null) {
                 previousNode.Next = temp;
@@ -215,11 +215,11 @@ namespace SharpStructures.Structures.Generic
             return data;
         }
 
-        public List<T> ToList() {
-            List<T> gList = new List<T>();
+        public List<int> ToList() {
+            List<int> gList = new List<int>();
 
             for( int i = 0; i < this.Count; i++) {
-                Node<T> n = this.FindNodeAt(i);
+                Node n = this.FindNodeAt(i);
 
                 if (n != null) {
                     gList.Add(n.Data);
@@ -229,11 +229,11 @@ namespace SharpStructures.Structures.Generic
             return gList;
         }
 
-        public T[] ToArray() {
-            T[] array = new T[Count];
+        public int[] ToArray() {
+            int[] array = new int[Count];
 
             for( int i = 0; i < Count; i++) {
-                Node<T> n = this.FindNodeAt(i);
+                Node n = this.FindNodeAt(i);
                 
                 if( n != null ) {
                     array[i] = n.Data;
@@ -248,12 +248,14 @@ namespace SharpStructures.Structures.Generic
         /// <returns>A string representing the linked list ([ Count, Node Data: ...])</returns>
         public override string ToString() {
             if (Head == null) {
-                return "0, null";
+                return "[ 0, null ]";
             }
 
             StringBuilder sb = new StringBuilder();
+            
+            sb.Append($"[ ");
 
-            Node<T> current = Head;
+            Node current = Head;
 
             while (current != null) {
                 sb.Append($"{current.Data}");
@@ -262,6 +264,8 @@ namespace SharpStructures.Structures.Generic
                 }
                 current = current.Next;
             }
+
+            sb.Append($" ]");
 
             return sb.ToString();
         }
